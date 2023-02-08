@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c7daaa1646e9941a91dce4cdc74b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreValue: -1
+  _scoreValue: 0
   scoreText: {fileID: 1395750442}
 --- !u!1 &370456493
 GameObject:
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 378280082}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -819,7 +819,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rubis_Zelda
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ee31c5ce6cf3823499e29bcf3d92338b, type: 3}
 --- !u!1 &776465223
 GameObject:
@@ -1320,6 +1321,7 @@ GameObject:
   - component: {fileID: 1038859254}
   - component: {fileID: 1038859253}
   - component: {fileID: 1038859258}
+  - component: {fileID: 1038859259}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1341,6 +1343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 30
   _score: {fileID: 355100770}
+  _audiolist:
+  - {fileID: 8300000, guid: 52cffbf22f337b749b83140c802228ee, type: 3}
+  - {fileID: 8300000, guid: 83452dbe881068147a1f0e64dd1fe973, type: 3}
 --- !u!135 &1038859254
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1435,6 +1440,102 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &1038859259
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038859252}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 52cffbf22f337b749b83140c802228ee, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1043676652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,7 +2042,6 @@ GameObject:
   - component: {fileID: 1395750441}
   - component: {fileID: 1395750443}
   - component: {fileID: 1395750442}
-  - component: {fileID: 1395750444}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -2011,20 +2111,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395750440}
   m_CullTransparentMesh: 1
---- !u!114 &1395750444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395750440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c7daaa1646e9941a91dce4cdc74b72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scoreValue: 0
-  scoreText: {fileID: 1395750442}
 --- !u!1 &1425223279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,6 +2450,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1760832296}
   - component: {fileID: 1760832295}
+  - component: {fileID: 1760832298}
+  - component: {fileID: 1760832297}
   m_Layer: 0
   m_Name: Spawn_Target
   m_TagString: Untagged
@@ -2416,6 +2504,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760832297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760832294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15cbde989a94fb4abe50074aed49075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenrario02: {fileID: 11400000, guid: 53c6aa0bda636f84fa94a160a18b56da, type: 2}
+--- !u!114 &1760832298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760832294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad040290f16616848bb113d30440659a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenrario01: {fileID: 11400000, guid: 142769cd8c6e33e42bdd4393a1e3d876, type: 2}
 --- !u!1 &1817012817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2645,6 +2759,10 @@ PrefabInstance:
     - target: {fileID: 5661501781114481479, guid: fc42a40967891594eb9d485f80a4ac38, type: 3}
       propertyPath: m_Name
       value: Kokiri_Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661501781114481479, guid: fc42a40967891594eb9d485f80a4ac38, type: 3}
+      propertyPath: m_TagString
+      value: Sword
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc42a40967891594eb9d485f80a4ac38, type: 3}

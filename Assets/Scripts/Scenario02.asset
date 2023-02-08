@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f42aa4f0c19d84d934acff6222c8c2, type: 3}
+  m_Name: Scenario02
+  m_EditorClassIdentifier: 
+  Event: {fileID: 7669139809052453001, guid: b0f8abcdcdd175b489152402dd82118c, type: 3}
+  Eventpos:
+  - {x: -12.6, y: 35.05, z: 0.2}
+  - {x: -5.57, y: 35.05, z: -11.64}
+  - {x: 18.24, y: 35.05, z: -9.39}
+  - {x: 7.6, y: 35.05, z: 3.65}
+  - {x: 2.5, y: 35.05, z: -4.6}

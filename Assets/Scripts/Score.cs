@@ -6,13 +6,21 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] public int _scoreValue = -1;
+    [SerializeField] public int _scoreValue = 0;
     public Text scoreText;
+    public static event OnEvenScore BombSpawn;
+
+
+    public static event OnEvenScore MeteorSpawn;
+
+    public delegate void OnEvenScore();
 
     private void OnEnable()
     {
         Player.OnTargetTouched += UpScore;
     }
+    
+    
 
     private void OnDisable()
     {
@@ -23,7 +31,6 @@ public class Score : MonoBehaviour
 
     private void Start()
     {
-        _scoreValue = -1;
         UpScore();
     }
 
@@ -31,8 +38,16 @@ public class Score : MonoBehaviour
     {
         _scoreValue ++;
         scoreText.text = "Score : " + _scoreValue;
+        if (_scoreValue >= 10)
+        {
+            BombSpawn?.Invoke();
+        }
+
+        if (_scoreValue >= 20)
+        {
+            MeteorSpawn?.Invoke();
+        }
     }
-    
 
     
 }

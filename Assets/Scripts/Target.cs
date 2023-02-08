@@ -17,6 +17,5 @@ public class Target : MonoBehaviour
     {
         transform.Rotate(Vector3.up * _rotationSpeed, Space.World);
     }
-
-   
+    
 }

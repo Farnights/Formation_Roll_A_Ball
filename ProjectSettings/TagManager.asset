@@ -7,6 +7,10 @@ TagManager:
   - Target
   - Obstacle
   - Target02
+  - Sword
+  - Bomb
+  - Meteor
+  - Ground
   layers:
   - Default
   - TransparentFX
