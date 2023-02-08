@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6244146687165526255}
   - component: {fileID: 919354430865382117}
   - component: {fileID: 6980525400298401184}
+  - component: {fileID: 4953455397742983451}
   m_Layer: 0
   m_Name: Rubis_Zelda
   m_TagString: Target
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5595535774838772026}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 3.2710407, y: 3.9379, z: 11}
   m_LocalScale: {x: 0.46083, y: 0.46083, z: 0.46083}
   m_ConstrainProportionsScale: 0
@@ -97,7 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b92ce4e439f6e43833812bfe75fd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rotationSpeed: 0.2
   Value: 1
+  _target: {fileID: 5595535774838772026}
 --- !u!136 &6980525400298401184
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -112,3 +115,18 @@ CapsuleCollider:
   m_Height: 2.9912431
   m_Direction: 1
   m_Center: {x: 0.00000008940697, y: 0, z: -0.022527343}
+--- !u!114 &4953455397742983451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5595535774838772026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b92ce4e439f6e43833812bfe75fd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 0.2
+  Value: 1
+  _target: {fileID: 0}

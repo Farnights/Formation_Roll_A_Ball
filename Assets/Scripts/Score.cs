@@ -6,8 +6,20 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private int _scoreValue = -1;
+    [SerializeField] public int _scoreValue = -1;
     public Text scoreText;
+
+    private void OnEnable()
+    {
+        Player.OnTargetTouched += UpScore;
+    }
+
+    private void OnDisable()
+    {
+        {
+            Player.OnTargetTouched -= UpScore;
+        }
+    }
 
     private void Start()
     {

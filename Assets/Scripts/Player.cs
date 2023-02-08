@@ -7,10 +7,15 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     private Rigidbody _rigidbody;
-    [SerializeField] private float Speed = 30f;
-    [SerializeField] private Spawn_Obstacles spawnWall;
+    [SerializeField] private float _speed = 30f;
+    [SerializeField] private Score _score;
 
-    public UnityEvent UpdateScore;
+    public delegate void UpdateScore();
+    public static event UpdateScore OnTargetTouched;
+
+    public delegate void OnEvenScore();
+
+    public static event OnEvenScore EvenScore;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -19,7 +24,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        _rigidbody.AddForce(Input.GetAxis("Horizontal")*Speed, 0.0f, Input.GetAxis("Vertical")*Speed);
+        _rigidbody.AddForce(Input.GetAxis("Horizontal")*_speed, 0.0f, Input.GetAxis("Vertical")*_speed);
     }
 
     
@@ -28,9 +33,16 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Target"))
         {
-            UpdateScore?.Invoke();
+            OnTargetTouched?.Invoke();
             Destroy(other.gameObject);
+            
+            if (_score._scoreValue%2 == 0)
+            {
+                EvenScore?.Invoke();
+            }
         }
+
+        
         
         
     }
