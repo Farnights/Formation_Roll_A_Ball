@@ -19,6 +19,6 @@ public class Spawn_Obstacles : MonoBehaviour
     {
 
         yield return new WaitForSeconds(1f);
-        Instantiate(Obstacle, Spawnposition[Random.Range(0, Spawnposition.Length)].transform.position, Quaternion.identity);
+        Instantiate(Obstacle, Spawnposition[Random.Range(0, Spawnposition.Length)].transform.position, Quaternion.Euler(110f,250f,0f));
     }
 }

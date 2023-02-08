@@ -2,15 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     private Rigidbody _rigidbody;
-    public Score score;
     [SerializeField] private float Speed = 30f;
-    [SerializeField] private GameObject Obstacle;
-    [SerializeField] private GameObject[] Spawnposition;
     [SerializeField] private Spawn_Obstacles spawnWall;
+
+    public UnityEvent UpdateScore;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -28,9 +28,8 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Target"))
         {
-            score.UpScore(other.gameObject.GetComponent<Target>().Value);
+            UpdateScore?.Invoke();
             Destroy(other.gameObject);
-            spawnWall.SpawnObstacles();
         }
         
         

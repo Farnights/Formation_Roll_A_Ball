@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,18 +6,19 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    private int _scoreValue = 0;
+    [SerializeField] private int _scoreValue = -1;
     public Text scoreText;
-    public GameObject winMessage;
 
-    public void UpScore(int value)
+    private void Start()
     {
-        _scoreValue += value;
-        scoreText.text = "Score : " + _scoreValue.ToString();
-        if (_scoreValue >= 12)
-        {
-            winMessage.SetActive(true);
-        }
+        _scoreValue = -1;
+        UpScore();
+    }
+
+    public void UpScore()
+    {
+        _scoreValue ++;
+        scoreText.text = "Score : " + _scoreValue;
     }
     
 
