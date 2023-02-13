@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
 
     public static event SpeedLowLife SpeedLow;
 
+    public delegate void EndMessage();
+
+    public static event EndMessage End;
+
 
     void Start()
     {
@@ -37,6 +41,8 @@ public class Player : MonoBehaviour
         _audio = GetComponent<AudioSource>();
 
         _hud.PVBall = _hud.PVMaxBall;
+
+        _hud.SpeedBall = 30f;
 
     }
 
@@ -57,6 +63,7 @@ public class Player : MonoBehaviour
         if (_hud.PVBall == 0)
         {
             Destroy(gameObject);
+            End?.Invoke();
         }
     }
 
