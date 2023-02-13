@@ -10,16 +10,24 @@ using UnityEngine.PlayerLoop;
 public class Player : MonoBehaviour
 {
     private Rigidbody _rigidbody;
-    [SerializeField] private float _speed = 30f;
     [SerializeField] private Score _score;
     private AudioSource _audio;
     [SerializeField] private AudioClip[] _audiolist;
+    [SerializeField] private HUDDatas _hud;
 
     public static event OnEvenScore OnTargetTouched;
 
     public delegate void OnEvenScore();
 
     public static event OnEvenScore EvenScore;
+
+    public delegate void SpeedMidLife();
+
+    public static event SpeedMidLife SpeedMid;
+    
+    public delegate void SpeedLowLife();
+
+    public static event SpeedLowLife SpeedLow;
 
 
     void Start()
@@ -28,13 +36,28 @@ public class Player : MonoBehaviour
 
         _audio = GetComponent<AudioSource>();
 
+        _hud.PVBall = _hud.PVMaxBall;
+
     }
 
     void FixedUpdate()
     {
-        _rigidbody.AddForce(Input.GetAxis("Horizontal")*_speed, 0.0f, Input.GetAxis("Vertical")*_speed);
+        _rigidbody.AddForce(Input.GetAxis("Horizontal")*_hud.SpeedBall, 0.0f, Input.GetAxis("Vertical")*_hud.SpeedBall);
 
-        
+        if (_hud.PVBall <= 4)
+        {
+            SpeedMid?.Invoke();
+        }
+
+        if (_hud.PVBall <= 2)
+        {
+            SpeedLow?.Invoke();
+        }
+
+        if (_hud.PVBall == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     
@@ -56,6 +79,7 @@ public class Player : MonoBehaviour
             if (other.gameObject.CompareTag("Meteor"))
             {
                 _score._scoreValue--;
+                _hud.PVBall--;
                 Destroy(other.gameObject);
             }
         }
@@ -72,6 +96,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Bomb"))
         {
             _score._scoreValue--;
+            _hud.PVBall--;
             Destroy(collision.gameObject);
         }
         

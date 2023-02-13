@@ -781,7 +781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5110607598280838016, guid: ee31c5ce6cf3823499e29bcf3d92338b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.97
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 5110607598280838016, guid: ee31c5ce6cf3823499e29bcf3d92338b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1322,6 +1322,7 @@ GameObject:
   - component: {fileID: 1038859253}
   - component: {fileID: 1038859258}
   - component: {fileID: 1038859259}
+  - component: {fileID: 1038859260}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1341,11 +1342,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4094f7c3fecd9d340aa43283fcdc11c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 30
   _score: {fileID: 355100770}
   _audiolist:
   - {fileID: 8300000, guid: 52cffbf22f337b749b83140c802228ee, type: 3}
   - {fileID: 8300000, guid: 83452dbe881068147a1f0e64dd1fe973, type: 3}
+  _hud: {fileID: 11400000, guid: fa47dd69939afb841a0a6a882571bc32, type: 2}
 --- !u!135 &1038859254
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1536,6 +1537,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1038859260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038859252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55246f30457aba40b84dc2c66e28c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hud: {fileID: 11400000, guid: fa47dd69939afb841a0a6a882571bc32, type: 2}
 --- !u!1 &1043676652
 GameObject:
   m_ObjectHideFlags: 0
