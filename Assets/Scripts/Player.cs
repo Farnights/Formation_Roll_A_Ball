@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
             SpeedLow?.Invoke();
         }
 
-        if (_hud.PVBall == 0)
+        if (_hud.PVBall <= 0)
         {
             Destroy(gameObject);
             End?.Invoke();

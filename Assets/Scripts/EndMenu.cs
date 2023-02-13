@@ -9,8 +9,7 @@ using UnityEngine.UI;
 public class EndMenu : MonoBehaviour
 {
     [SerializeField] private TMP_Text _endMessage;
-    [SerializeField] private GameObject _endMenu;
-
+    
     
     private void OnEnable()
     {
